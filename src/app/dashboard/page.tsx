@@ -31,7 +31,7 @@ function Dashboard() {
   const [showForm, setShowForm] = useState(false);
   const [editingHabit, setEditingHabit] = useState<Habit | null>(null);
 
-  const session = getSession();
+  const [session] = useState(() => getSession());
 
   const loadHabits = useCallback(() => {
     if (session) {

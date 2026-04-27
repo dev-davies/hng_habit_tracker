@@ -42,7 +42,9 @@ async function seedStorage(
 ) {
   await page.addInitScript(
     ({ storageKeys, seededUsers, seededSession, seededHabits }) => {
+      if (window.localStorage.getItem('__seeded__')) return;
       window.localStorage.clear();
+      window.localStorage.setItem('__seeded__', 'true');
       window.localStorage.setItem(storageKeys.users, JSON.stringify(seededUsers));
       window.localStorage.setItem(storageKeys.session, JSON.stringify(seededSession));
       window.localStorage.setItem(storageKeys.habits, JSON.stringify(seededHabits));

@@ -1,7 +1,6 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
-import { validateHabitName } from '@/lib/validators';
 
 type HabitFormProps = {
   onSave: (name: string, description: string, frequency: 'daily') => void;
@@ -12,19 +11,18 @@ type HabitFormProps = {
 export default function HabitForm({ onSave, onCancel, initial }: HabitFormProps) {
   const [name, setName] = useState(initial?.name ?? '');
   const [description, setDescription] = useState(initial?.description ?? '');
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState('');
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    setError(null);
 
-    const validation = validateHabitName(name);
-    if (!validation.valid) {
-      setError(validation.error);
+    if (!name.trim()) {
+      setError('Habit name is required');
       return;
     }
 
-    onSave(validation.value, description.trim(), 'daily');
+    setError('');
+    onSave(name.trim(), description.trim(), 'daily');
   }
 
   return (
@@ -44,9 +42,9 @@ export default function HabitForm({ onSave, onCancel, initial }: HabitFormProps)
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="e.g. Drink water"
-          required
           className="rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
         />
+        {error && <p className="mt-1 text-sm text-red-600" role="alert">{error}</p>}
       </div>
 
       <div className="flex flex-col gap-1">
@@ -87,8 +85,6 @@ export default function HabitForm({ onSave, onCancel, initial }: HabitFormProps)
           Daily is the default frequency for every habit.
         </p>
       </div>
-
-      {error && <p className="text-red-600 text-sm">{error}</p>}
 
       <div className="flex gap-2">
         <button
