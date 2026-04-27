@@ -88,58 +88,67 @@ function Dashboard() {
   return (
     <div
       data-testid="dashboard-page"
-      className="min-h-screen flex flex-col items-center px-4 py-6 max-w-lg mx-auto"
+      className="min-h-screen bg-slate-50"
     >
-      <header className="w-full flex items-center justify-between mb-6">
-        <h1 className="text-lg font-bold">My Habits</h1>
-        <button
-          data-testid="auth-logout-button"
-          onClick={handleLogout}
-          className="text-sm px-3 py-1.5 rounded border font-medium focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2"
-        >
-          Logout
-        </button>
-      </header>
+      <div className="mx-auto flex w-full max-w-2xl flex-col px-4 py-8">
+        <header className="mb-8 flex w-full items-center justify-between gap-4">
+          <div className="min-w-0">
+            <h1 className="text-2xl font-semibold tracking-tight text-slate-900">My Habits</h1>
+            <p className="mt-1 text-sm text-slate-500">Stay consistent one day at a time.</p>
+          </div>
+          <button
+            data-testid="auth-logout-button"
+            onClick={handleLogout}
+            className="shrink-0 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+          >
+            Logout
+          </button>
+        </header>
 
-      {(showForm || editingHabit) ? (
-        <div className="w-full mb-6">
-          <HabitForm
-            onSave={handleSave}
-            onCancel={handleCancel}
-            initial={editingHabit ? { name: editingHabit.name, description: editingHabit.description } : undefined}
-          />
-        </div>
-      ) : (
-        <button
-          data-testid="create-habit-button"
-          onClick={() => setShowForm(true)}
-          className="w-full mb-6 bg-foreground text-background rounded px-4 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2"
-        >
-          + New Habit
-        </button>
-      )}
-
-      {habits.length === 0 && !showForm ? (
-        <div
-          data-testid="empty-state"
-          className="w-full text-center py-12 text-gray-400"
-        >
-          <p className="text-lg mb-2">No habits yet</p>
-          <p className="text-sm">Create your first habit to get started.</p>
-        </div>
-      ) : (
-        <div className="w-full flex flex-col gap-3">
-          {habits.map((habit) => (
-            <HabitCard
-              key={habit.id}
-              habit={habit}
-              onToggleComplete={handleToggleComplete}
-              onEdit={handleEdit}
-              onDelete={handleDelete}
+        {(showForm || editingHabit) ? (
+          <div className="mb-6 w-full">
+            <HabitForm
+              onSave={handleSave}
+              onCancel={handleCancel}
+              initial={editingHabit ? { name: editingHabit.name, description: editingHabit.description } : undefined}
             />
-          ))}
-        </div>
-      )}
+          </div>
+        ) : (
+          <button
+            data-testid="create-habit-button"
+            onClick={() => setShowForm(true)}
+            className="mb-6 w-full rounded-lg bg-orange-600 px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+          >
+            + New Habit
+          </button>
+        )}
+
+        {habits.length === 0 && !showForm ? (
+          <div
+            data-testid="empty-state"
+            className="flex w-full flex-1 items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-white px-6 py-16 text-center"
+          >
+            <div className="max-w-md">
+              <p className="text-lg font-medium text-slate-700">No habits yet</p>
+              <p className="mt-2 text-sm leading-6 text-slate-500">
+                Create your first habit to start building a steady routine.
+              </p>
+            </div>
+          </div>
+        ) : (
+          <div className="flex w-full flex-col gap-3">
+            {habits.map((habit) => (
+              <HabitCard
+                key={habit.id}
+                habit={habit}
+                onToggleComplete={handleToggleComplete}
+                onEdit={handleEdit}
+                onDelete={handleDelete}
+              />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -31,10 +31,10 @@ export default function HabitForm({ onSave, onCancel, initial }: HabitFormProps)
     <form
       data-testid="habit-form"
       onSubmit={handleSubmit}
-      className="flex flex-col gap-4 w-full"
+      className="flex w-full flex-col gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
     >
       <div className="flex flex-col gap-1">
-        <label htmlFor="habit-name" className="text-sm font-medium">
+        <label htmlFor="habit-name" className="text-sm font-medium text-slate-700">
           Name <span className="text-red-500">*</span>
         </label>
         <input
@@ -45,12 +45,12 @@ export default function HabitForm({ onSave, onCancel, initial }: HabitFormProps)
           onChange={(e) => setName(e.target.value)}
           placeholder="e.g. Drink water"
           required
-          className="border rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-foreground"
+          className="rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
         />
       </div>
 
       <div className="flex flex-col gap-1">
-        <label htmlFor="habit-description" className="text-sm font-medium">
+        <label htmlFor="habit-description" className="text-sm font-medium text-slate-700">
           Description
         </label>
         <textarea
@@ -60,23 +60,32 @@ export default function HabitForm({ onSave, onCancel, initial }: HabitFormProps)
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Optional description"
           rows={2}
-          className="border rounded px-3 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-foreground"
+          className="resize-none rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
         />
       </div>
 
       <div className="flex flex-col gap-1">
-        <label htmlFor="habit-frequency" className="text-sm font-medium">
+        <label htmlFor="habit-frequency" className="text-sm font-medium text-slate-700">
           Frequency
         </label>
-        <select
-          id="habit-frequency"
-          data-testid="habit-frequency-select"
-          value="daily"
-          disabled
-          className="border rounded px-3 py-2 text-sm bg-gray-100 cursor-not-allowed"
-        >
-          <option value="daily">Daily</option>
-        </select>
+        <div className="relative">
+          <select
+            id="habit-frequency"
+            data-testid="habit-frequency-select"
+            value="daily"
+            disabled
+            aria-describedby="habit-frequency-help"
+            className="w-full cursor-not-allowed appearance-none rounded-lg border border-slate-300 bg-slate-50 px-3 py-2.5 pr-20 text-sm font-medium text-slate-700 opacity-100"
+          >
+            <option value="daily">Daily</option>
+          </select>
+          <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-xs font-semibold uppercase tracking-wide text-orange-600">
+            Locked
+          </span>
+        </div>
+        <p id="habit-frequency-help" className="text-xs text-slate-500">
+          Daily is the default frequency for every habit.
+        </p>
       </div>
 
       {error && <p className="text-red-600 text-sm">{error}</p>}
@@ -85,14 +94,14 @@ export default function HabitForm({ onSave, onCancel, initial }: HabitFormProps)
         <button
           data-testid="habit-save-button"
           type="submit"
-          className="flex-1 bg-foreground text-background rounded px-4 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2"
+          className="flex-1 rounded-lg bg-orange-600 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
         >
           Save
         </button>
         <button
           type="button"
           onClick={onCancel}
-          className="flex-1 border rounded px-4 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2"
+          className="flex-1 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
         >
           Cancel
         </button>
