@@ -10,7 +10,7 @@ describe('getHabitSlug', () => {
     expect(getHabitSlug('  Read   a   Book  ')).toBe('read-a-book');
   });
 
-  test('removes non-alphanumeric characters except hyphens', () => {
+  test('removes non alphanumeric characters except hyphens', () => {
     expect(getHabitSlug('Yoga & Meditation!!')).toBe('yoga--meditation');
   });
 });

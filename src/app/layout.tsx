@@ -5,6 +5,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Habit Tracker",
   description: "A PWA habit tracker built for daily consistency.",
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
