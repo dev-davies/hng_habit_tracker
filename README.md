@@ -116,12 +116,18 @@ The app icon (`public/icons/icon.svg`) represents a habit completion graphic:
 - **Progress Arc:** A thick orange arc layered over the top right quarter of the circle, representing progress.
 - **Checkmark:** A thick orange checkmark in the middle, indicating completion.
 
-### Login Page
-The login page UI is clean and minimalist. Its background color adapts to the user's system preferences:
-- **Light Mode:** Pure white (`#ffffff`).
-- **Dark Mode:** Very dark gray, almost black (`#0a0a0a`).
+### Aesthetic: Afro-Minimalist
+The application uses a high-fidelity "Afro-Minimalist" design system characterized by:
+- **Color Palette:** Warm stone tones (`stone-50` to `stone-950`) accented by vibrant orange (`orange-600`) for primary actions.
+- **Visual Depth:** Hard-edged, offset shadows (`shadow-[4px_4px_0px_0px_rgba(249,115,22,0.2)]`) that provide a tactile, "neo-brutalist" feel.
+- **Typography:** Bold, tight tracking for headings and semi-bold labels for clarity.
+- **Responsive Shapes:** Generous `rounded-2xl` and `rounded-3xl` corners for a modern, friendly interface.
 
-It features a perfectly centered layout, simple input fields with rounded edges, a solid dark/light adaptive submit button, and a sign-up link at the bottom.
+### Authentication Forms
+The Login and Signup forms are structurally identical to ensure brand consistency:
+- **Mobile-First:** Optimized for touch with oversized inputs (`py-4`) and large action buttons.
+- **Micro-Interactions:** A subtle 150ms transition on successful authentication provides a polished feel during the redirect.
+- **Dynamic Themes:** Full support for system-level dark mode, transitioning smoothly between light stone and deep charcoal backgrounds via Tailwind's `dark:` utility classes.
 
 ## Trade-offs and Limitations
 
