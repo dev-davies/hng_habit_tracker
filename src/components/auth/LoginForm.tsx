@@ -18,9 +18,7 @@ export default function LoginForm() {
 
     try {
       login(email, password);
-      setTimeout(() => {
-        router.push('/dashboard');
-      }, 150);
+      router.push('/dashboard');
     } catch (err) {
       setError((err as Error).message);
       setIsLoading(false);
