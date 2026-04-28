@@ -93,8 +93,8 @@ function Dashboard() {
       <div className="mx-auto flex w-full flex-col p-6 sm:p-10">
         <header className="mb-8 flex w-full items-center justify-between gap-4">
           <div className="min-w-0">
-            <h1 className="text-2xl font-semibold tracking-tight text-slate-900">My Habits</h1>
-            <p className="mt-1 text-sm text-slate-500">Stay consistent one day at a time.</p>
+            <h1 className="text-3xl font-extrabold tracking-tight text-stone-900 dark:text-stone-50">My Habits</h1>
+            <p className="mt-1 text-stone-500 dark:text-stone-400 font-medium">Stay consistent one day at a time.</p>
           </div>
           <button
             data-testid="auth-logout-button"
