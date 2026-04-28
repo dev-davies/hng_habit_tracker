@@ -22,21 +22,17 @@ export default function HabitCard({ habit, onToggleComplete, onEdit, onDelete }:
   return (
     <div
       data-testid={`habit-card-${slug}`}
-      className={`w-full min-w-0 rounded-xl border p-4 transition-colors ${
-        completedToday
-          ? 'border-orange-200 bg-orange-50'
-          : 'border-zinc-200 bg-white'
-      }`}
+      className="group relative bg-white dark:bg-stone-900 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-[4px_4px_0px_0px_rgba(249,115,22,0.2)] dark:shadow-[4px_4px_0px_0px_rgba(249,115,22,0.1)] p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(249,115,22,0.4)] first:md:col-span-2 first:md:row-span-2 flex flex-col justify-between"
     >
       <div className="flex min-w-0 items-start gap-3">
         <button
           type="button"
           data-testid={`habit-complete-${slug}`}
           onClick={() => onToggleComplete(habit)}
-          className={`mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 ${
+          className={`mt-0.5 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border text-xs font-bold transition-all active:scale-90 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 ${
             completedToday
               ? 'border-orange-500 bg-orange-500 text-white'
-              : 'border-zinc-300 bg-white text-slate-700'
+              : 'border-stone-300 bg-white text-stone-700 dark:bg-stone-950 dark:text-stone-300'
           }`}
           aria-pressed={completedToday}
           aria-label={completedToday ? `Mark ${habit.name} as incomplete` : `Mark ${habit.name} as complete`}
@@ -46,8 +42,8 @@ export default function HabitCard({ habit, onToggleComplete, onEdit, onDelete }:
 
         <div className="min-w-0 flex-1">
           <h3
-            className={`break-words text-sm font-semibold leading-5 ${
-              completedToday ? 'text-slate-400 line-through' : 'text-slate-900'
+            className={`break-words font-extrabold text-2xl leading-tight ${
+              completedToday ? 'text-stone-400 line-through' : 'text-stone-900 dark:text-stone-50'
             }`}
           >
             {habit.name}
