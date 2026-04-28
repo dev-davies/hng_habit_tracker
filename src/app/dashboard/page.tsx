@@ -126,7 +126,7 @@ function Dashboard() {
         {habits.length === 0 && !showForm ? (
           <div
             data-testid="empty-state"
-            className="flex w-full flex-1 items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-white px-6 py-16 text-center"
+            className="flex flex-col items-center justify-center py-20 px-6 text-center bg-stone-100/50 dark:bg-stone-900/30 rounded-3xl border-2 border-dashed border-stone-300 dark:border-stone-700"
           >
             <div className="max-w-md">
               <p className="text-lg font-medium text-slate-700">No habits yet</p>
