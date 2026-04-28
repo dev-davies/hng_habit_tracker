@@ -107,6 +107,22 @@ A native service worker (`public/sw.js`) is registered on page load via a client
 
 After loading the app once while online, the cached app shell allows the app to render offline without crashing.
 
+## UI & Design
+
+### App Icon
+The app icon (`public/icons/icon.svg`) represents a habit completion graphic:
+- **Background:** White square with rounded corners.
+- **Base Circle:** A thick, light grayish-blue circle in the center.
+- **Progress Arc:** A thick orange arc layered over the top right quarter of the circle, representing progress.
+- **Checkmark:** A thick orange checkmark in the middle, indicating completion.
+
+### Login Page
+The login page UI is clean and minimalist. Its background color adapts to the user's system preferences:
+- **Light Mode:** Pure white (`#ffffff`).
+- **Dark Mode:** Very dark gray, almost black (`#0a0a0a`).
+
+It features a perfectly centered layout, simple input fields with rounded edges, a solid dark/light adaptive submit button, and a sign-up link at the bottom.
+
 ## Trade-offs and Limitations
 
 - **No real authentication**: Passwords are stored as plain text in localStorage. This is a client-side demo, not production-grade auth.
