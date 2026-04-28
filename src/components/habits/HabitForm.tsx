@@ -43,8 +43,10 @@ export default function HabitForm({ onSave, onCancel, initial }: HabitFormProps)
           onChange={(e) => setName(e.target.value)}
           placeholder="e.g. Drink water"
           className="w-full bg-stone-50 dark:bg-stone-950 border border-stone-200 dark:border-stone-800 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 rounded-2xl px-4 py-4 outline-none transition-all placeholder:text-stone-400 font-medium text-stone-900 dark:text-stone-50"
+          aria-invalid={!!error}
+          aria-describedby={error ? "habit-name-error" : undefined}
         />
-        {error && <p className="mt-1 text-sm font-medium text-red-600 dark:text-red-400" role="alert">{error}</p>}
+        {error && <p id="habit-name-error" aria-live="polite" className="mt-1 text-sm font-medium text-red-600 dark:text-red-400" role="alert">{error}</p>}
       </div>
 
       <div className="flex flex-col gap-2">
