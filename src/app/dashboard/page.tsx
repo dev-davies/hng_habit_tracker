@@ -88,9 +88,9 @@ function Dashboard() {
   return (
     <div
       data-testid="dashboard-page"
-      className="min-h-screen bg-slate-50"
+      className="min-h-screen bg-stone-50 dark:bg-stone-950"
     >
-      <div className="mx-auto flex w-full max-w-2xl flex-col px-4 py-8">
+      <div className="mx-auto flex w-full flex-col p-6 sm:p-10">
         <header className="mb-8 flex w-full items-center justify-between gap-4">
           <div className="min-w-0">
             <h1 className="text-2xl font-semibold tracking-tight text-slate-900">My Habits</h1>
@@ -136,7 +136,7 @@ function Dashboard() {
             </div>
           </div>
         ) : (
-          <div className="flex w-full flex-col gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-min w-full max-w-6xl mx-auto">
             {habits.map((habit) => (
               <HabitCard
                 key={habit.id}
