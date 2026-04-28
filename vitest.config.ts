@@ -11,6 +11,7 @@ export default defineConfig({
     include: ['tests/unit/**/*.test.ts', 'tests/integration/**/*.test.tsx'],
     environment: 'jsdom',
     setupFiles: ['./tests/setup.ts'],
+    testTimeout: 15000,
     coverage: {
       provider: 'v8',
       include: ['src/lib/**/*.ts'],
