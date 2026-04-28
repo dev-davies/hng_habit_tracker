@@ -29,7 +29,7 @@ export default function HabitForm({ onSave, onCancel, initial }: HabitFormProps)
     <form
       data-testid="habit-form"
       onSubmit={handleSubmit}
-      className="flex w-full flex-col gap-5 rounded-3xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900 p-6 sm:p-8 shadow-[4px_4px_0px_0px_rgba(249,115,22,0.2)] dark:shadow-[4px_4px_0px_0px_rgba(249,115,22,0.1)] transition-all"
+      className="flex w-full max-w-lg mx-auto flex-col gap-5 rounded-3xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900 p-6 sm:p-8 shadow-[4px_4px_0px_0px_rgba(249,115,22,0.2)] dark:shadow-[4px_4px_0px_0px_rgba(249,115,22,0.1)] transition-all"
     >
       <div className="flex flex-col gap-2">
         <label htmlFor="habit-name" className="text-sm font-semibold text-stone-700 dark:text-stone-300 ml-1">
