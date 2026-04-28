@@ -129,8 +129,8 @@ function Dashboard() {
             className="flex flex-col items-center justify-center py-20 px-6 text-center bg-stone-100/50 dark:bg-stone-900/30 rounded-3xl border-2 border-dashed border-stone-300 dark:border-stone-700"
           >
             <div className="max-w-md">
-              <p className="text-lg font-medium text-slate-700">No habits yet</p>
-              <p className="mt-2 text-sm leading-6 text-slate-500">
+              <h3 className="text-2xl font-bold text-stone-900 dark:text-stone-50 mb-2">No habits yet</h3>
+              <p className="text-stone-500 dark:text-stone-400">
                 Create your first habit to start building a steady routine.
               </p>
             </div>
