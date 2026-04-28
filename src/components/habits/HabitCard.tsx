@@ -35,7 +35,7 @@ export default function HabitCard({ habit, onToggleComplete, onEdit, onDelete }:
               : 'border-stone-300 bg-white text-stone-700 dark:bg-stone-950 dark:text-stone-300'
           }`}
           aria-pressed={completedToday}
-          aria-label={completedToday ? `Mark ${habit.name} as incomplete` : `Mark ${habit.name} as complete`}
+          aria-label={"Toggle completion for " + habit.name}
         >
           {completedToday ? 'Done' : 'Mark'}
         </button>
@@ -91,6 +91,7 @@ export default function HabitCard({ habit, onToggleComplete, onEdit, onDelete }:
               type="button"
               data-testid={`habit-delete-${slug}`}
               onClick={() => setConfirmingDelete(true)}
+              aria-label={"Delete " + habit.name}
               className="rounded-lg border border-zinc-300 px-3 py-2 text-xs font-medium text-slate-700 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
             >
               Delete
