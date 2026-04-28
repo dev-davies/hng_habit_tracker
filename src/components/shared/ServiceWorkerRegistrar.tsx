@@ -8,7 +8,10 @@ export default function ServiceWorkerRegistrar() {
       navigator.serviceWorker.register('/sw.js').catch(console.error);
 
       navigator.serviceWorker.addEventListener('controllerchange', () => {
-        window.location.reload();
+        // Prevent the auto-reload from interrupting Playwright E2E tests
+        if (!navigator.webdriver) {
+          window.location.reload();
+        }
       });
     }
   }, []);
