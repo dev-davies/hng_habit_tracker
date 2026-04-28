@@ -69,7 +69,7 @@ export default function HabitCard({ habit, onToggleComplete, onEdit, onDelete }:
             type="button"
             data-testid={`habit-edit-${slug}`}
             onClick={() => onEdit(habit)}
-            className="rounded-lg border border-zinc-300 px-3 py-2 text-xs font-medium text-slate-700 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+            className="rounded-xl border border-orange-200 bg-orange-50 px-4 py-2.5 text-sm font-semibold text-orange-800 shadow-sm transition-colors hover:bg-orange-100 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 dark:border-orange-900/60 dark:bg-orange-950/40 dark:text-orange-200 dark:hover:bg-orange-950/60"
           >
             Edit
           </button>
@@ -82,7 +82,7 @@ export default function HabitCard({ habit, onToggleComplete, onEdit, onDelete }:
                 onDelete(habit.id);
                 setConfirmingDelete(false);
               }}
-              className="rounded-lg bg-orange-500 px-3 py-2 text-xs font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+              className="rounded-xl bg-red-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
             >
               Confirm
             </button>
@@ -92,7 +92,7 @@ export default function HabitCard({ habit, onToggleComplete, onEdit, onDelete }:
               data-testid={`habit-delete-${slug}`}
               onClick={() => setConfirmingDelete(true)}
               aria-label={"Delete " + habit.name}
-              className="rounded-lg border border-zinc-300 px-3 py-2 text-xs font-medium text-slate-700 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+              className="rounded-xl border border-red-200 bg-red-50 px-4 py-2.5 text-sm font-semibold text-red-700 shadow-sm transition-colors hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:border-red-900/60 dark:bg-red-950/40 dark:text-red-200 dark:hover:bg-red-950/60"
             >
               Delete
             </button>
