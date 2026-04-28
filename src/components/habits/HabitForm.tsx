@@ -29,10 +29,10 @@ export default function HabitForm({ onSave, onCancel, initial }: HabitFormProps)
     <form
       data-testid="habit-form"
       onSubmit={handleSubmit}
-      className="flex w-full flex-col gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
+      className="flex w-full flex-col gap-5 rounded-3xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900 p-6 sm:p-8 shadow-[4px_4px_0px_0px_rgba(249,115,22,0.2)] dark:shadow-[4px_4px_0px_0px_rgba(249,115,22,0.1)] transition-all"
     >
-      <div className="flex flex-col gap-1">
-        <label htmlFor="habit-name" className="text-sm font-medium text-slate-700">
+      <div className="flex flex-col gap-2">
+        <label htmlFor="habit-name" className="text-sm font-semibold text-stone-700 dark:text-stone-300 ml-1">
           Name <span className="text-red-500">*</span>
         </label>
         <input
@@ -42,13 +42,13 @@ export default function HabitForm({ onSave, onCancel, initial }: HabitFormProps)
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="e.g. Drink water"
-          className="rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+          className="w-full bg-stone-50 dark:bg-stone-950 border border-stone-200 dark:border-stone-800 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 rounded-2xl px-4 py-4 outline-none transition-all placeholder:text-stone-400 font-medium text-stone-900 dark:text-stone-50"
         />
-        {error && <p className="mt-1 text-sm text-red-600" role="alert">{error}</p>}
+        {error && <p className="mt-1 text-sm font-medium text-red-600 dark:text-red-400" role="alert">{error}</p>}
       </div>
 
-      <div className="flex flex-col gap-1">
-        <label htmlFor="habit-description" className="text-sm font-medium text-slate-700">
+      <div className="flex flex-col gap-2">
+        <label htmlFor="habit-description" className="text-sm font-semibold text-stone-700 dark:text-stone-300 ml-1">
           Description
         </label>
         <textarea
@@ -58,12 +58,12 @@ export default function HabitForm({ onSave, onCancel, initial }: HabitFormProps)
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Optional description"
           rows={2}
-          className="resize-none rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+          className="w-full resize-none bg-stone-50 dark:bg-stone-950 border border-stone-200 dark:border-stone-800 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 rounded-2xl px-4 py-4 outline-none transition-all placeholder:text-stone-400 font-medium text-stone-900 dark:text-stone-50"
         />
       </div>
 
-      <div className="flex flex-col gap-1">
-        <label htmlFor="habit-frequency" className="text-sm font-medium text-slate-700">
+      <div className="flex flex-col gap-2">
+        <label htmlFor="habit-frequency" className="text-sm font-semibold text-stone-700 dark:text-stone-300 ml-1">
           Frequency
         </label>
         <div className="relative">
@@ -73,31 +73,31 @@ export default function HabitForm({ onSave, onCancel, initial }: HabitFormProps)
             value="daily"
             disabled
             aria-describedby="habit-frequency-help"
-            className="w-full cursor-not-allowed appearance-none rounded-lg border border-slate-300 bg-slate-50 px-3 py-2.5 pr-20 text-sm font-medium text-slate-700 opacity-100"
+            className="w-full cursor-not-allowed appearance-none bg-stone-100 dark:bg-stone-950/50 border border-stone-200 dark:border-stone-800 rounded-2xl px-4 py-4 text-stone-500 dark:text-stone-500 font-medium opacity-80"
           >
             <option value="daily">Daily</option>
           </select>
-          <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-xs font-semibold uppercase tracking-wide text-orange-600">
+          <span className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-xs font-extrabold uppercase tracking-widest text-orange-600">
             Locked
           </span>
         </div>
-        <p id="habit-frequency-help" className="text-xs text-slate-500">
+        <p id="habit-frequency-help" className="text-xs font-medium text-stone-500 dark:text-stone-400 ml-1">
           Daily is the default frequency for every habit.
         </p>
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex gap-3 mt-2">
         <button
           data-testid="habit-save-button"
           type="submit"
-          className="flex-1 rounded-lg bg-orange-600 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+          className="flex-1 bg-orange-600 hover:bg-orange-700 text-white rounded-2xl px-4 py-4 font-bold text-lg tracking-wide transition-all active:scale-95 shadow-md flex justify-center items-center"
         >
           Save
         </button>
         <button
           type="button"
           onClick={onCancel}
-          className="flex-1 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+          className="flex-1 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 text-stone-800 dark:text-stone-200 rounded-2xl px-4 py-4 font-bold text-lg tracking-wide transition-all active:scale-95 flex justify-center items-center border border-stone-200 dark:border-stone-700"
         >
           Cancel
         </button>
