@@ -91,29 +91,29 @@ function Dashboard() {
       className="min-h-screen bg-stone-50 dark:bg-stone-950"
     >
       <div className="mx-auto flex w-full flex-col p-6 sm:p-10">
-        <header className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-5 mb-8 w-full max-w-6xl mx-auto">
-          <div className="min-w-0">
+        <header className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center mb-10 w-full max-w-6xl mx-auto">
+          <div className="justify-self-start text-left min-w-0">
             <h1 className="text-3xl font-extrabold tracking-tight text-stone-900 dark:text-stone-50">My Habits</h1>
             <p className="mt-1 text-stone-500 dark:text-stone-400 font-medium">Stay consistent one day at a time.</p>
           </div>
-          <div className="flex items-center gap-3 w-full sm:w-auto">
-            {!(showForm || editingHabit) && (
-              <button
-                data-testid="create-habit-button"
-                onClick={() => setShowForm(true)}
-                className="w-full sm:w-auto px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white rounded-2xl font-bold text-lg tracking-wide shadow-md hover:-translate-y-1 transition-all active:scale-95 flex-shrink-0"
-              >
-                + New Habit
-              </button>
-            )}
+          
+          {!(showForm || editingHabit) ? (
             <button
-              data-testid="auth-logout-button"
-              onClick={handleLogout}
-              className="shrink-0 rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900 px-4 py-2 text-sm font-semibold text-stone-700 dark:text-stone-300 transition-all hover:bg-stone-50 dark:hover:bg-stone-800"
+              data-testid="create-habit-button"
+              onClick={() => setShowForm(true)}
+              className="justify-self-center w-full md:w-64 px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white rounded-2xl font-bold text-lg tracking-wide shadow-md hover:-translate-y-1 transition-all active:scale-95"
             >
-              Logout
+              + New Habit
             </button>
-          </div>
+          ) : <div />}
+
+          <button
+            data-testid="auth-logout-button"
+            onClick={handleLogout}
+            className="justify-self-end shrink-0 rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900 px-4 py-2 text-sm font-semibold text-stone-700 dark:text-stone-300 transition-all hover:bg-stone-50 dark:hover:bg-stone-800"
+          >
+            Logout
+          </button>
         </header>
 
         {(showForm || editingHabit) && (
