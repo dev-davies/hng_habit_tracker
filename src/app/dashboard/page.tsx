@@ -91,36 +91,39 @@ function Dashboard() {
       className="min-h-screen bg-stone-50 dark:bg-stone-950"
     >
       <div className="mx-auto flex w-full flex-col p-6 sm:p-10">
-        <header className="mb-8 flex w-full items-center justify-between gap-4">
+        <header className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-5 mb-8 w-full max-w-6xl mx-auto">
           <div className="min-w-0">
             <h1 className="text-3xl font-extrabold tracking-tight text-stone-900 dark:text-stone-50">My Habits</h1>
             <p className="mt-1 text-stone-500 dark:text-stone-400 font-medium">Stay consistent one day at a time.</p>
           </div>
-          <button
-            data-testid="auth-logout-button"
-            onClick={handleLogout}
-            className="shrink-0 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
-          >
-            Logout
-          </button>
+          <div className="flex items-center gap-3 w-full sm:w-auto">
+            {!(showForm || editingHabit) && (
+              <button
+                data-testid="create-habit-button"
+                onClick={() => setShowForm(true)}
+                className="w-full sm:w-auto px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white rounded-2xl font-bold text-lg tracking-wide shadow-md hover:-translate-y-1 transition-all active:scale-95 flex-shrink-0"
+              >
+                + New Habit
+              </button>
+            )}
+            <button
+              data-testid="auth-logout-button"
+              onClick={handleLogout}
+              className="shrink-0 rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900 px-4 py-2 text-sm font-semibold text-stone-700 dark:text-stone-300 transition-all hover:bg-stone-50 dark:hover:bg-stone-800"
+            >
+              Logout
+            </button>
+          </div>
         </header>
 
-        {(showForm || editingHabit) ? (
-          <div className="mb-6 w-full">
+        {(showForm || editingHabit) && (
+          <div className="mb-6 w-full max-w-6xl mx-auto">
             <HabitForm
               onSave={handleSave}
               onCancel={handleCancel}
               initial={editingHabit ? { name: editingHabit.name, description: editingHabit.description } : undefined}
             />
           </div>
-        ) : (
-          <button
-            data-testid="create-habit-button"
-            onClick={() => setShowForm(true)}
-            className="mb-6 w-full rounded-lg bg-orange-600 px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
-          >
-            + New Habit
-          </button>
         )}
 
         {habits.length === 0 && !showForm ? (
