@@ -123,11 +123,21 @@ The application uses a high-fidelity "Afro-Minimalist" design system characteriz
 - **Typography:** Bold, tight tracking for headings and semi-bold labels for clarity.
 - **Responsive Shapes:** Generous `rounded-2xl` and `rounded-3xl` corners for a modern, friendly interface.
 
-### Authentication Forms
-The Login and Signup forms are structurally identical to ensure brand consistency:
+### Dashboard: Bento Grid
+The main dashboard utilizes an asymmetrical bento grid layout:
+- **Visual Hierarchy:** The first habit card in the list spans multiple columns and rows (`md:col-span-2 md:row-span-2`), creating a dynamic focal point.
+- **Responsive Grid:** Automatically adapts from a single column on mobile to a multi-column grid on desktop, maximizing screen utilization.
+- **Header Structure:** A 3-column CSS grid perfectly centers the elongated "+ New Habit" button, providing a balanced and premium desktop experience.
+
+### Authentication & Habit Forms
+Forms are designed for consistency and high-speed interaction:
 - **Mobile-First:** Optimized for touch with oversized inputs (`py-4`) and large action buttons.
-- **Micro-Interactions:** A subtle 150ms transition on successful authentication provides a polished feel during the redirect.
-- **Dynamic Themes:** Full support for system-level dark mode, transitioning smoothly between light stone and deep charcoal backgrounds via Tailwind's `dark:` utility classes.
+- **Micro-Interactions:** Subtle `active:scale-95` animations on buttons and smooth 150ms transitions during redirects.
+- **Accessibility (WCAG 2.1 AA):** 
+  - **High-Contrast Focus:** Global 4px orange focus rings with generous offsets for keyboard navigation.
+  - **ARIA Standards:** Programmatically linked error messages (`aria-invalid`, `aria-describedby`) and live regions (`aria-live="polite"`) for screen readers.
+  - **Contextual Labels:** Buttons include descriptive `aria-label` attributes (e.g., "Toggle completion for Drink water") and `aria-pressed` states.
+  - **Theme Support:** Full support for system-level dark mode, transitioning smoothly between light stone and deep charcoal backgrounds.
 
 ## Trade-offs and Limitations
 
