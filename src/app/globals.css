@@ -24,3 +24,13 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer base {
+  button:focus-visible, 
+  a:focus-visible, 
+  input:focus-visible, 
+  select:focus-visible, 
+  textarea:focus-visible {
+    @apply outline-none ring-4 ring-orange-500 ring-offset-4 ring-offset-stone-50 dark:ring-offset-stone-950 transition-shadow;
+  }
+}
